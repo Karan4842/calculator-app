@@ -1,38 +1,120 @@
+/* App container */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+  /* Animated gradient background */
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #00c6ff, #0072ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Calculator area */
+.calculator {
+  background: #ffffff;  /* Solid white panel */
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 420px; /* Increased width for more buttons */
+  text-align: center;
+}
+
+/* Input box */
+input {
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in width */
+  height: 70px;
+  font-size: 28px; /* Slightly smaller font to fit more content */
+  font-family: 'Courier New', Courier, monospace;
+  text-align: right;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background: #f0f0f0;
+  color: #333;
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Changed to a 5-column layout */
+  gap: 15px;
+}
+
+/* Buttons */
+button {
+  padding: 18px; /* Adjusted padding for smaller buttons */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #e9e9e9;
+  color: #333;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+button:hover {
+  background: #dcdcdc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Span two columns */
+.span-two {
+  grid-column: span 2;
+}
+
+/* Operator buttons (+, -, *, /) */
+.operator {
+  background: #ff8c00; /* A nice orange for operators */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.operator:hover {
+  background: #e67e00;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Equals button */
+.equals {
+  background: #28a745; /* Green for equals */
+}
+
+.equals:hover {
+  background: #218838;
+}
+
+/* Scientific operator buttons */
+.sci-operator {
+  background: #5a6268;
+  color: white;
+}
+.sci-operator:hover {
+  background: #4a5258;
 }
